@@ -11,20 +11,31 @@ import java.util.List;
 
 public abstract class AggregateRoot {
 
-    @Getter
+
     protected String id;
-    @Getter
-    @Setter
     private int version = -1;
 
     private final List<BaseEvent> changes = new ArrayList<>();
     private final Logger logger = LoggerFactory.getLogger(AggregateRoot.class);
 
-    public List<BaseEvent> getUncommittedChanges() {
-        return changes;
+    public String getId() {
+        return this.id;
     }
+
+    public int getVersion() {
+        return this.version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public List<BaseEvent> getUncommittedChanges() {
+        return this.changes;
+    }
+
     public void markChangesAsCommitted() {
-        changes.clear();
+        this.changes.clear();
     }
 
     protected void applyChange(BaseEvent event, boolean isNewEvent) {
@@ -50,4 +61,5 @@ public abstract class AggregateRoot {
     public void replayEvents(Iterable<BaseEvent> events) {
         events.forEach(event -> applyChange(event, false));
     }
+
 }

@@ -4,21 +4,20 @@ import com.techbank.accountcommon.dto.AccountType;
 import com.techbank.cqrscore.events.BaseEvent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@EqualsAndHashCode(callSuper = true)
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
 public class AccountOpenedEvent extends BaseEvent {
 
     private String accountHolder;
     private AccountType accountType;
-    private Date createdAt;
+    private LocalDate createdAt;
     private double openingBalance;
 }

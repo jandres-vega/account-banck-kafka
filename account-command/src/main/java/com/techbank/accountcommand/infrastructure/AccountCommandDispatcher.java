@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-
 public class AccountCommandDispatcher implements CommandDispatcher {
 
     private final Map<Class<? extends BaseCommand>, List<CommandHandlerMethod<? extends BaseCommand>>> routes = new HashMap<>();
@@ -26,10 +25,10 @@ public class AccountCommandDispatcher implements CommandDispatcher {
     public void send(BaseCommand command) {
         var handlers = routes.get(command.getClass());
         if (handlers == null || handlers.isEmpty()) {
-            throw new RuntimeException("Cannot send command to more that one handler " + command.getClass());
+            throw new RuntimeException("No command handler was registered!");
         }
         if (handlers.size() > 1) {
-            throw new RuntimeException("No command handler was register " + command.getClass());
+            throw new RuntimeException("Cannot send command to more than one handler!");
         }
         handlers.get(0).handle(command);
     }

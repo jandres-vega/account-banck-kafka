@@ -19,4 +19,5 @@ public class EventModel {
     private int version;
     private String eventType;
     private BaseEvent eventData;
+
 }

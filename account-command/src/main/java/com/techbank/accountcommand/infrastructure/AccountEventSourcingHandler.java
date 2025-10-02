@@ -11,10 +11,13 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 
 @Service
-@AllArgsConstructor
 public class AccountEventSourcingHandler implements EventSourcingHandler<AccountAggregate> {
 
     private final EventStore eventStore;
+
+    public AccountEventSourcingHandler(EventStore eventStore) {
+        this.eventStore = eventStore;
+    }
 
     @Override
     public void save(AggregateRoot aggregateRoot) {

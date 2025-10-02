@@ -1,7 +1,5 @@
 package com.techbank.cqrscore.messages;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Data
@@ -9,5 +7,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 public abstract class Message {
-    private String id;
+    protected String id;
+
 }
