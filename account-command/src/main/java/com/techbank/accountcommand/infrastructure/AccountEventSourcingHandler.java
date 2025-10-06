@@ -5,7 +5,6 @@ import com.techbank.cqrscore.domain.AggregateRoot;
 import com.techbank.cqrscore.events.BaseEvent;
 import com.techbank.cqrscore.handlers.EventSourcingHandler;
 import com.techbank.cqrscore.infrastructure.EventStore;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

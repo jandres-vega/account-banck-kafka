@@ -7,7 +7,6 @@ import com.techbank.cqrscore.exceptions.AggregateNotFoundException;
 import com.techbank.cqrscore.exceptions.ConcurrencyException;
 import com.techbank.cqrscore.infrastructure.EventStore;
 import com.techbank.cqrscore.producers.EventProducer;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -48,7 +47,7 @@ public class AccountEventStore implements EventStore {
             var persistedEvent = eventStoreRepository.save(eventModel);
 
             if (!persistedEvent.getId().isEmpty()) {
-                eventProducer.produce(event.getClass().getTypeName(), event);
+                eventProducer.produce(event.getClass().getSimpleName(), event);
             }
         }
     }

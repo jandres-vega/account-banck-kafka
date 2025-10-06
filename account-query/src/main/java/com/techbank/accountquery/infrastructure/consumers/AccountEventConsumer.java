@@ -5,7 +5,6 @@ import com.techbank.accountcommon.events.AccountOpenedEvent;
 import com.techbank.accountcommon.events.FundsDepositedEvent;
 import com.techbank.accountcommon.events.FundsWithdrawEvent;
 import com.techbank.accountquery.infrastructure.handlers.EventHandler;
-import lombok.AllArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;

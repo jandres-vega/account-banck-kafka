@@ -6,7 +6,6 @@ import com.techbank.accountcommon.events.FundsDepositedEvent;
 import com.techbank.accountcommon.events.FundsWithdrawEvent;
 import com.techbank.accountquery.domain.AccountRepository;
 import com.techbank.accountquery.domain.BankAccount;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +19,7 @@ public class AccountEventHandler implements EventHandler{
 
     @Override
     public void on(AccountOpenedEvent event) {
+        System.out.println("Handling AccountOpenedEvent for account id: " + event);
         var bankAccount = BankAccount.builder()
                 .id(event.getId())
                 .accountHolder(event.getAccountHolder())
