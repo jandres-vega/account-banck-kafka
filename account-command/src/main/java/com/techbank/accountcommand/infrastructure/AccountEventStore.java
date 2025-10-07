@@ -60,4 +60,13 @@ public class AccountEventStore implements EventStore {
         }
         return eventStream.stream().map(EventModel::getEventData).collect(Collectors.toList());
     }
+
+    @Override
+    public List<String> getAggregateIds() {
+        var events = eventStoreRepository.findAll();
+        if(events.isEmpty()){
+            throw new IllegalStateException("Incorrect account id provided");
+        }
+        return events.stream().map(EventModel::getAggregateIdentifier).collect(Collectors.toList());
+    }
 }

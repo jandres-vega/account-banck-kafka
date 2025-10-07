@@ -27,5 +27,6 @@ public class AccountCommandApplication {
         commandDispatcher.registerHandler(DepositFundsCommand.class, cmd -> commandHandler.handle((DepositFundsCommand) cmd));
         commandDispatcher.registerHandler(WithdrawFoundsCommand.class, cmd -> commandHandler.handle((WithdrawFoundsCommand) cmd));
         commandDispatcher.registerHandler(CloseAccountCommand.class, cmd -> commandHandler.handle((CloseAccountCommand) cmd));
+        commandDispatcher.registerHandler(RestoreReadDbCommand.class, cmd -> commandHandler.handle((RestoreReadDbCommand) cmd));
     }
 }

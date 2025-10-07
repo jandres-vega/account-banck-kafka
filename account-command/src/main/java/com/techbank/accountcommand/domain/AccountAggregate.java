@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class AccountAggregate extends AggregateRoot {
 
+    @Getter
     public Boolean active;
     @Getter
     private double balance;
